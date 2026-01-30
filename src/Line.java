@@ -10,5 +10,17 @@ public class Line {
         double deltay=end.getY()- end.getY();
         return Math.sqrt(Math.pow(deltax,2)+Math.pow(deltay,2));
     }
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true;
+        }
+        if (!(object instanceof Line)) {
+            return false;
+        }
+        Line line = (Line) object;
+        return Double.compare(this.calculateLength(),
+                line.calculateLength()) == 0;
+    }
 
 }

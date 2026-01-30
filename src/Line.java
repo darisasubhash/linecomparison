@@ -1,4 +1,4 @@
-public class Line {
+public class Line implements Comparable<Line> {
     private  Point start;
     private Point end;
     public Line(Point start,Point end){
@@ -11,16 +11,9 @@ public class Line {
         return Math.sqrt(Math.pow(deltax,2)+Math.pow(deltay,2));
     }
     @Override
-    public boolean equals(Object object) {
-        if (this == object) {
-            return true;
-        }
-        if (!(object instanceof Line)) {
-            return false;
-        }
-        Line line = (Line) object;
+    public int compareTo(Line otherLine) {
         return Double.compare(this.calculateLength(),
-                line.calculateLength()) == 0;
+                otherLine.calculateLength());
     }
 
 }
